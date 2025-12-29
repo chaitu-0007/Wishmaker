@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cutie Pie</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f2, #ffb3d9);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #d63384;
+        }
+        button {
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff1493;
+        }
+        .hidden {
+            display: none;
+        }
+        .compliments {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .compliments p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="opening" class="container">
+        <h1>hey my cutie pie do you even know how cute you are</h1>
+        <button onclick="showWishes()">Let's Make Your Day Special</button>
+    </div>
 
+    <div id="wishes" class="container hidden">
+        <h1>What Would You Like?</h1>
+        <button onclick="showWish('ferrero')">Ferrero Rocher</button>
+        <button onclick="showWish('waffle')">Double Chocolate Waffle</button>
+        <button onclick="showWish('whatever')">Whatever You Want</button>
+    </div>
+
+    <div id="wish-detail" class="container hidden">
+        <h1 id="wish-title"></h1>
+        <p id="wish-message"></p>
+        <button onclick="showCompliments()">Now for Some Love</button>
+        <button onclick="showWishes()">Back to Wishes</button>
+    </div>
+
+    <div id="compliments" class="container hidden">
+        <h1>You Are So Loved</h1>
+        <div class="compliments">
+            <p>Every time I see you, my heart skips a beat. You're the most beautiful person I know, inside and out.</p>
+            <p>Your smile lights up my world like the sun on a perfect day. I can't imagine life without it.</p>
+            <p>You're not just cute—you're absolutely stunning, and you make every moment feel magical.</p>
+            <p>I love how you laugh at my silly jokes and how your eyes sparkle when you're happy. You're my everything.</p>
+            <p>If I could bottle up your kindness and sweetness, the world would be a better place. Thank you for being you.</p>
+            <p>You're the cutest, most adorable person ever, and I'm so lucky to have you in my life.</p>
+            <p>Your hugs feel like home, and your love makes me feel invincible. I adore you more than words can say.</p>
+            <p>Every day with you is a gift. You're my favorite person, my cutie pie, and my forever love.</p>
+            <p>You make me want to be a better person just by being around you. You're perfect in every way.</p>
+            <p>I love you to the moon and back, my sweet, amazing cutie pie. You're the best thing that's ever happened to me.</p>
+        </div>
+        <button onclick="showOpening()">Start Over</button>
+    </div>
+
+    <script>
+        function showWishes() {
+            document.getElementById('opening').classList.add('hidden');
+            document.getElementById('wishes').classList.remove('hidden');
+            document.getElementById('wish-detail').classList.add('hidden');
+            document.getElementById('compliments').classList.add('hidden');
+        }
+
+        function showWish(wish) {
+            document.getElementById('wishes').classList.add('hidden');
+            document.getElementById('wish-detail').classList.remove('hidden');
+            const title = document.getElementById('wish-title');
+            const message = document.getElementById('wish-message');
+            if (wish === 'ferrero') {
+                title.textContent = 'Ferrero Rocher for My Sweetheart';
+                message.textContent = 'Imagine us sharing a box of these delicious chocolates, laughing and enjoying every bite. You deserve all the sweetness in the world!';
+            } else if (wish === 'waffle') {
+                title.textContent = 'Double Chocolate Waffle Delight';
+                message.textContent = 'A fluffy waffle drizzled with chocolate, topped with whipped cream and berries—just like you, sweet and irresistible!';
+            } else if (wish === 'whatever') {
+                title.textContent = 'Whatever You Want, My Love';
+                message.textContent = 'Tell me your heart's desire, and I'll make it happen. Your wish is my command, cutie pie!';
+            }
+        }
+
+        function showCompliments() {
+            document.getElementById('wish-detail').classList.add('hidden');
+            document.getElementById('compliments').classList.remove('hidden');
+        }
+
+        function showOpening() {
+            document.getElementById('compliments').classList.add('hidden');
+            document.getElementById('opening').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
